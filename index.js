@@ -12,7 +12,7 @@ var mkdir = function (dist, callback) {
     });
   (function () {
     var args = arguments,
-      _path;
+      _path = '';
     if (list.length > 0) {
       _path = list.shift();
       fs.exists(_path, function (exists) {
@@ -29,7 +29,7 @@ var mkdir = function (dist, callback) {
         }
       });
     } else {
-      callback && callback(null);
+      callback && callback(null, _path);
     }
   })();
 };

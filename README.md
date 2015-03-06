@@ -15,13 +15,7 @@ Sync:
 ```js
 var mkdir = require('mkdir-p');
 
-mkdir.sync('/a/b/c/d', function(err){
-  if(err){
-    console.log(err);
-  } else {
-    console.log(ok);
-  }
-});
+mkdir.sync('/a/b/c/d');
 ```
 
 Async:
@@ -29,5 +23,11 @@ Async:
 ```js
 var mkdir = require('mkdir-p');
 
-mkdir('/a/b/c/d')
+mkdir('/a/b/c/d', function(err){
+  if(err){
+    console.log(err);
+  } else {
+    console.log(ok);
+  }
+})
 ```
