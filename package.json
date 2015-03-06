@@ -1,0 +1,26 @@
+{
+  "author": {
+    "name": "Baolei Chen",
+    "email": "chenbl@liepin.com",
+    "url": "http://ued.liepin.com"
+  },
+  "dependencies": {},
+  "description": "mkdir-p",
+  "devDependencies": {},
+  "keywords": [
+    "mkdir-p"
+  ],
+  "main": "index.js",
+  "name": "mkdir-p",
+  "repository": {
+    "url": "https://github.com/pillys/mkdir-p",
+    "type": "git"
+  },
+  "version": "0.0.1",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/pillys/mkdir-p/issues"
+  },
+  "homepage": "https://github.com/pillys/mkdir-p",
+  "scripts": {}
+}
