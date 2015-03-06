@@ -1,8 +1,40 @@
-"use strict";
 var fs = require('fs');
 var path = require('path');
 
-module.exports = function (dist) {
+var mkdir = function (dist, callback) {
+  var list = [];
+  dist = path.resolve(dist);
+  dist.split(/[\\\/]/)
+    .reduce(function (first, second) {
+      var _path = path.join(first, second);
+      list.push(_path);
+      return _path;
+    });
+  (function () {
+    var args = arguments,
+      _path;
+    if (list.length > 0) {
+      _path = list.shift();
+      fs.exists(_path, function (exists) {
+        if (exists) {
+          args.callee();
+        } else {
+          fs.mkdir(_path, function (err) {
+            if (err) {
+              callback && callback(err);
+            } else {
+              args.callee();
+            }
+          })
+        }
+      });
+    } else {
+      callback && callback(null);
+    }
+  })();
+};
+mkdir.sync = function (dist) {
+  dist = path.resolve(dist);
   dist.split(/[\\\/]/)
     .reduce(function (first, second) {
       var _path = path.join(first, second);
@@ -12,3 +44,4 @@ module.exports = function (dist) {
       return _path;
     });
 };
+module.exports = mkdir;
