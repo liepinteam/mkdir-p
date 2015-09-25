@@ -27,7 +27,11 @@ mkdir('/a/b/c/d', function(err){
   if(err){
     console.log(err);
   } else {
-    console.log(ok);
+    console.log('ok');
   }
-})
+});
 ```
+
+# License
+
+  [MIT](LICENSE)
